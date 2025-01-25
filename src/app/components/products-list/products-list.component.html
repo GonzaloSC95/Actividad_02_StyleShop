@@ -1,0 +1,18 @@
+<section class="container">
+   @if(productos.length === 0) {
+      <h1 class="text-center p-3">Lista de productos</h1>
+      <div class="alert alert-danger text-center">No hay productos disponibles 😞</div>
+   }
+   @else {
+      <h1 class="text-center p-3">Lista de productos</h1>
+      <div class="d-grid d-print-inline-grid mb-5">
+         <div class="row">
+               @for(p of productos; track $index) {
+                  <div class="col-lg-4 col-md-6 col-sm-12 g-5">
+                     <app-product-card [productos]="productos" [producto]="p"></app-product-card>
+                  </div>
+               }
+         </div>
+      </div>
+   }
+</section>

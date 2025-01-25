@@ -1,0 +1,17 @@
+<div>
+   <div class="card product-card">
+      <img src="{{ producto.image }}" class="card-img-top" alt="{{ producto.name }}">
+      <div class="card-body text-bg-dark">
+         <h5 class="card-title">{{ producto.name }}</h5>
+         <p class="card-text">{{ producto.description }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+         <li class="list-group-item text-bg-dark"><strong>Precio:</strong> {{ producto.price }} €</li>
+         <li class="list-group-item text-bg-dark"><strong>Categoría:</strong> {{ producto.category }}</li>
+         <li class="list-group-item text-bg-dark"><strong>Estado:</strong> {{ producto.active ? 'Activo' : 'Inactivo' }}</li>
+      </ul>
+   </div>
+   <div class="mt-2 text-bg-light">
+         <button (click)="eliminarProducto(producto._id)" class="btn btn-danger">Eliminar</button>
+   </div>
+</div>

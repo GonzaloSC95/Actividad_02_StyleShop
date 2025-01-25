@@ -1,0 +1,51 @@
+<section class="container mb-5">
+   <h1 class="text-center p-3">Alta de productos</h1>
+   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="form-group p-3">
+         <label for="name">Nombre</label>
+         <input id="name" formControlName="name" class="form-control" />
+         @if(productForm.get('name')?.invalid && productForm.get('name')?.touched) {
+            <small class="text-danger">El nombre es obligatorio.</small>
+         }
+      </div>
+      <div class="form-group p-3">
+         <label for="description">Descripción</label>
+         <input id="description" formControlName="description" class="form-control" />
+         @if(productForm.get('description')?.invalid && productForm.get('description')?.touched) {
+            <small class="text-danger">La descripción es obligatoria.</small>
+         }
+      </div>
+      <div class="form-group p-3">
+         <label for="price">Precio</label>
+         <input id="price" formControlName="price" type="number" class="form-control" />
+         @if(productForm.get('price')?.invalid && productForm.get('price')?.touched) {
+            <small class="text-danger">El precio debe ser un número positivo.</small>
+         }
+      </div>
+      <div class="form-group p-3">
+         <label for="category">Categoría</label>
+         <select id="category" formControlName="category" class="form-control">
+            @for(c of categories; track c) {
+               <option [value]="c">{{c}}</option>
+            }
+         </select>
+         @if(productForm.get('category')?.invalid && productForm.get('category')?.touched) {
+            <small class="text-danger">La categoría es obligatoria.</small>
+         }
+      </div>
+      <div class="form-group p-3">
+         <label for="image">Imagen</label>
+         <input id="image" formControlName="image" class="form-control" />
+         @if(productForm.get('image')?.invalid && productForm.get('image')?.touched) {
+            <small class="text-danger">La URL de la imagen es obligatoria.</small>
+         }
+      </div>
+      <div class="form-group p-3">
+         <input id="active" formControlName="active" type="checkbox" class="form-check-input" />
+         <small class="form-check-label mx-1">Marque si el producto está activo.</small>
+      </div>
+      <div class="form-group p-3">
+         <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Agregar Producto</button>
+      </div>
+   </form>
+</section>

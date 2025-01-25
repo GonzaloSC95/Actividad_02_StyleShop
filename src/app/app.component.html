@@ -1,0 +1,45 @@
+<!-- Nav -->
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="logo.png" alt="Logo" width="50" height="50" class="me-2">
+      <span class="fs-4" style="font-family: 'Caveat', cursive;">{{title}}</span>
+    </a>
+    <!-- Formulario de búsqueda -->
+    <form class="d-flex" role="search" #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
+        <div class="form-group p-3">
+            <input class="form-control me-2" type="search" placeholder="Nombre" id="name" name="name" [(ngModel)]="filterData.name">
+        </div>
+        <div class="form-group p-3">
+            <input class="form-control me-2" type="search" placeholder="Categoría" id="category" name="category" [(ngModel)]="filterData.category">
+        </div>
+        <div class="form-group p-3">
+            <input class="form-control me-2" type="search" placeholder="Precio" id="price" name="price" [(ngModel)]="filterData.price">
+        </div>
+        <div class="form-group p-3">
+            <select class="form-control me-2" id="active" name="active" [(ngModel)]="filterData.active">
+              <option value="-1" selected>Todo</option>
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select>
+        </div>
+        <div class="form-group p-3">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+    </form>
+  </div>
+</nav>
+
+<!-- Componentes -->
+<app-products-list [categories]="categories" [productos]="productos"></app-products-list>
+<app-product-form [categories]="categories"  [productos]="productos"></app-product-form>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white p-3">
+  <div class="container">
+    <p class="mb-0">© 2025 StyleShop. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+
