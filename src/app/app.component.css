@@ -1,0 +1,34 @@
+@media (max-width: 760px) {
+
+   nav > div {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+   }
+   
+   nav .navbar-brand,nav form.d-flex {
+   flex-direction: column;
+   align-items: stretch;
+   margin: 0 auto;
+   }
+
+   nav .navbar-brand {
+      margin-bottom: 10px;
+   }
+
+   nav form.d-flex button {
+      width: 100%;
+   }
+}
+
+@media (max-width: 390px) {
+   nav .navbar-brand, nav form.d-flex {
+   flex-direction: column;
+   align-items: stretch;
+   margin: 0 auto;
+   }
+
+   nav form.d-flex button {
+      width: 100%;
+   }
+}
